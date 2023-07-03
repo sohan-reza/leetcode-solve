@@ -1,0 +1,13 @@
+class Solution(object):
+    def findDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        ans = -1
+        uniq_list = [-1 for i in range(len(nums)-1)]
+        for i in range(len(nums)):
+            if uniq_list[nums[i]-1] != -1:
+                ans = nums[i]
+            uniq_list[nums[i]-1] = 1
+        return ans
